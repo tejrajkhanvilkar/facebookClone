@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="A new Flutter project.">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="flutter_facebook_responsive_ui">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
+    <title>flutter_facebook_responsive_ui</title>
+    <link rel="manifest" href="manifest.json">
+
+    <!-- new -->
+    <style>
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex; /* Default Axis is X*/
+        justify-content: center; /* Main Axis */
+        align-items: center; /* Cross Axis */
+      }
+      .indicator{
+        width: 50vw;
+      }
+
+
+    </style>
+
+
+</head>
+<body style="overflow: hidden", bgcolor="#111111">
+
+
+<!-- new -->
+<div id="loading_indicator" class="container">
+    <img class="indicator" src="./assets/loading2.gif"/>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+
+
+
+
+<script>
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyDkOWpaWvfVHvleNNpjydRk5rEkUsDV3Go",
+    authDomain: "facebookui-763e8.firebaseapp.com",
+    projectId: "facebookui-763e8",
+    storageBucket: "facebookui-763e8.appspot.com",
+    messagingSenderId: "981229563792",
+    appId: "1:981229563792:web:e7663abb29994914d58d15"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+<!-- This script installs service_worker.js to provide PWA functionality to
+     application. For more information, see:
+     https://developers.google.com/web/fundamentals/primers/service-workers -->
+<script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js?v=3327364393');
+      });
+    }
+
+
+</script>
+<script src="main.dart.js" type="application/javascript"></script>
+
+<script>
+window.onload = function () {
+setTimeout(function () {
+var loadingIndicator = document.getElementById("loading_indicator");
+if (loadingIndicator) {
+loadingIndicator.remove();
+}
+}, 10000);
+};
+
+</script>
+
+
+</body>
+</html>
